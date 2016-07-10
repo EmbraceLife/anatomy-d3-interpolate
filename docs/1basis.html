@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>color-test.js</title>
+  <title>1basis.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -248,7 +248,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>color-test.js</h1>
+                  <h1>1basis.js</h1>
               </div>
           </li>
         
@@ -263,87 +263,25 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"using default color.js name as function name, however, why it becomes another function"</span>)
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">basis</span>(<span class="hljs-params">t1, v0, v1, v2, v3</span>) </span>{
+  <span class="hljs-keyword">var</span> t2 = t1 * t1, t3 = t2 * t1;
+  <span class="hljs-keyword">return</span> ((<span class="hljs-number">1</span> - <span class="hljs-number">3</span> * t1 + <span class="hljs-number">3</span> * t2 - t3) * v0
+      + (<span class="hljs-number">4</span> - <span class="hljs-number">6</span> * t2 + <span class="hljs-number">3</span> * t3) * v1
+      + (<span class="hljs-number">1</span> + <span class="hljs-number">3</span> * t1 + <span class="hljs-number">3</span> * t2 - <span class="hljs-number">3</span> * t3) * v2
+      + t3 * v3) / <span class="hljs-number">6</span>;
+}
 
-<span class="hljs-keyword">import</span> color <span class="hljs-keyword">from</span> <span class="hljs-string">"./color"</span>;</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <p>needs another (3) is due to linear() return a function require an arg</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(color(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>));</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>need another () is due to constant() returns a function</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(color(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)());</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n the reason why there is another (2) is due to linear() and exponential() return antoher func using t as arg"</span>)
-
-<span class="hljs-keyword">import</span> {gamma, hue} <span class="hljs-keyword">from</span> <span class="hljs-string">"./color"</span>;
-
-<span class="hljs-built_in">console</span>.log(gamma(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>,<span class="hljs-number">6</span>)(<span class="hljs-number">2</span>));
-
-<span class="hljs-built_in">console</span>.log(hue(<span class="hljs-number">4</span>,<span class="hljs-number">6</span>)(<span class="hljs-number">2</span>));</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-6">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <p>if we add <code>export</code> to function exponential(a,b,y), then we can import as the following
-import {exponential} from “./color”;
-console.log(exponential(4,6,10)(2));</p>
-
-            </div>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values</span>) </span>{
+  <span class="hljs-keyword">var</span> n = values.length - <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">t</span>) </span>{
+    <span class="hljs-keyword">var</span> i = t &lt;= <span class="hljs-number">0</span> ? (t = <span class="hljs-number">0</span>) : t &gt;= <span class="hljs-number">1</span> ? (t = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t * n),
+        v1 = values[i],
+        v2 = values[i + <span class="hljs-number">1</span>],
+        v0 = i &gt; <span class="hljs-number">0</span> ? values[i - <span class="hljs-number">1</span>] : <span class="hljs-number">2</span> * v1 - v2,
+        v3 = i &lt; n - <span class="hljs-number">1</span> ? values[i + <span class="hljs-number">2</span>] : <span class="hljs-number">2</span> * v2 - v1;
+    <span class="hljs-keyword">return</span> basis((t - i / n) * n, v0, v1, v2, v3);
+  };
+}</pre></div></div>
             
         </li>
         
