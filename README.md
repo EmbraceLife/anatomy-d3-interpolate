@@ -1,5 +1,7 @@
 # d3-interpolate
 
+Let's see [the annotation of each function in d3-interpolate module](https://embracelife.github.io/anatomy-d3-interpolate/docs/date-test.html)
+
 This module provides a variety of interpolation methods for blending between two values. Values may be numbers, colors, strings, arrays, or even deeply-nested objects. For example:
 
 ```js
