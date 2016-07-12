@@ -263,122 +263,18 @@
               
             </div>
             
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              
-            </div>
-            
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n run source code as basic functions"</span>)
-<span class="hljs-keyword">var</span> basis = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">t1,v0,v1,v2,v3</span>) </span>{
-  <span class="hljs-keyword">var</span> t2 = t1 * t1, t3 = t2 * t1;
-  <span class="hljs-keyword">return</span> ((<span class="hljs-number">1</span> - <span class="hljs-number">3</span> * t1 + <span class="hljs-number">3</span> * t2 - t3) * v0
-      + (<span class="hljs-number">4</span> - <span class="hljs-number">6</span> * t2 + <span class="hljs-number">3</span> * t3) * v1
-      + (<span class="hljs-number">1</span> + <span class="hljs-number">3</span> * t1 + <span class="hljs-number">3</span> * t2 - <span class="hljs-number">3</span> * t3) * v2
-      + t3 * v3) / <span class="hljs-number">6</span>;
-}
 
-<span class="hljs-keyword">var</span> basisOut = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values</span>) </span>{
-  <span class="hljs-keyword">var</span> n = values.length - <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">t</span>) </span>{
-    <span class="hljs-keyword">var</span> i = t &lt;= <span class="hljs-number">0</span> ? (t = <span class="hljs-number">0</span>) : t &gt;= <span class="hljs-number">1</span> ? (t = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t * n),
-        v1 = values[i],
-        v2 = values[i + <span class="hljs-number">1</span>],
-        v0 = i &gt; <span class="hljs-number">0</span> ? values[i - <span class="hljs-number">1</span>] : <span class="hljs-number">2</span> * v1 - v2,
-        v3 = i &lt; n - <span class="hljs-number">1</span> ? values[i + <span class="hljs-number">2</span>] : <span class="hljs-number">2</span> * v2 - v1;
-    <span class="hljs-keyword">return</span> basis((t - i / n) * n, v0, v1, v2, v3);
-  };
-}
 
-<span class="hljs-built_in">console</span>.log(basis(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>));
-<span class="hljs-built_in">console</span>.log(basisOut([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])(<span class="hljs-number">2</span>));</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <hr>
 
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n run source code line by line"</span>)</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-6">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <p>var basisOut = function(values) {</p>
+<span class="hljs-keyword">var</span> values = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+<span class="hljs-keyword">var</span> n = values.length - <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> t1 = <span class="hljs-number">-3</span>, t2 = <span class="hljs-number">4</span>, t3 = <span class="hljs-number">0.3</span>;
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> values = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
-<span class="hljs-keyword">var</span> n = values.length - <span class="hljs-number">1</span>;</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-7">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
-              </div>
-              <p> return function(t) {</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> t = <span class="hljs-number">-3</span>;
-<span class="hljs-keyword">var</span> i = t &lt;= <span class="hljs-number">0</span> ? (t = <span class="hljs-number">0</span>) : t &gt;= <span class="hljs-number">1</span> ? (t = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t * n),
-        v1 = values[i],
-        v2 = values[i + <span class="hljs-number">1</span>],
-        v0 = i &gt; <span class="hljs-number">0</span> ? values[i - <span class="hljs-number">1</span>] : <span class="hljs-number">2</span> * v1 - v2,
-        v3 = i &lt; n - <span class="hljs-number">1</span> ? values[i + <span class="hljs-number">2</span>] : <span class="hljs-number">2</span> * v2 - v1;
-<span class="hljs-built_in">console</span>.log(i,v1,v2,v0,v3);
-
-<span class="hljs-built_in">console</span>.log(basis((t - i / n) * n, v0, v1, v2, v3));</pre></div></div>
+<span class="hljs-keyword">var</span> i1 = t1 &lt;= <span class="hljs-number">0</span> ? (t1 = <span class="hljs-number">0</span>) : t1 &gt;= <span class="hljs-number">1</span> ? (t1 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t1 * n);
+<span class="hljs-keyword">var</span> i2 = t2 &lt;= <span class="hljs-number">0</span> ? (t2 = <span class="hljs-number">0</span>) : t2 &gt;= <span class="hljs-number">1</span> ? (t2 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t2 * n);
+<span class="hljs-keyword">var</span> i3 = t3 &lt;= <span class="hljs-number">0</span> ? (t3 = <span class="hljs-number">0</span>) : t3 &gt;= <span class="hljs-number">1</span> ? (t3 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t3 * n);
+<span class="hljs-built_in">console</span>.log(n,i1,i2,i3, <span class="hljs-built_in">Math</span>.floor(<span class="hljs-number">0.3</span>*<span class="hljs-number">4</span>));</pre></div></div>
             
         </li>
         

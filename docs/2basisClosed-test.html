@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>date-test.js</title>
+  <title>2basisClosed-test.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -248,7 +248,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>date-test.js</h1>
+                  <h1>2basisClosed-test.js</h1>
               </div>
           </li>
         
@@ -260,9 +260,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <hr>
-
+              
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">import</span> interpolateBasisClosed <span class="hljs-keyword">from</span> <span class="hljs-string">"./basisClosed"</span>;</pre></div></div>
             
         </li>
         
@@ -273,74 +275,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>use date() directly from ./date.js file</p>
+              <p><strong>How to use interpolateBasisClosed()?</strong></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">import</span> date <span class="hljs-keyword">from</span> <span class="hljs-string">"./date"</span>;
-<span class="hljs-built_in">console</span>.log(date(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2000</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>), <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2000</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>))(<span class="hljs-number">1</span>));</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              <p>use date() from d3.js</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> interpolate = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3-interpolate"</span>);
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"interpolateDate(a, b) interpolates between two dates a and b"</span>);<span class="hljs-comment">// function(test) {</span>
-<span class="hljs-keyword">var</span> i = interpolate.interpolateDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2000</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>), <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">2000</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>));
-
-<span class="hljs-built_in">console</span>.log(i(<span class="hljs-number">1</span>));
-
-
- <span class="hljs-comment">/* test.equal(i(0.0) instanceof Date, true);
-  test.equal(i(0.5) instanceof Date, true);
-  test.equal(i(1.0) instanceof Date, true);
-  test.strictEqual(+i(0.2), +new Date(2000, 0, 1, 4, 48));
-  test.strictEqual(+i(0.4), +new Date(2000, 0, 1, 9, 36));
-  test.end();
-});
-
-tape("interpolateDate(a, b) reuses the output datea", function(test) {
-  var i = interpolate.interpolateDate(new Date(2000, 0, 1), new Date(2000, 0, 2));
-  test.strictEqual(i(0.2), i(0.4));
-  test.end();
-});
-*/</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">``</span><span class="hljs-string">`javascript
+interpolateBasisClosed(array)(t);
+`</span><span class="hljs-string">``</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"test interpolateBasisClosed()"</span> + interpolateBasisClosed([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])(<span class="hljs-number">3</span>));</pre></div></div>
             
         </li>
         

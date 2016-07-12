@@ -40,11 +40,6 @@
                 </a>
               
                 
-                <a class="source" href="basis-opensrc.html">
-                  basis-opensrc.js
-                </a>
-              
-                
                 <a class="source" href="basisClosed-test.html">
                   basisClosed-test.js
                 </a>
@@ -260,12 +255,54 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <h5 id="interpolatebasisclosed-from-interpolatebasis">interpolateBasisClosed from interpolateBasis</h5>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">import</span> {basis} <span class="hljs-keyword">from</span> <span class="hljs-string">"./basis"</span>;
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Import basis function</p>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values</span>) </span>{
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">import</span> {basis} <span class="hljs-keyword">from</span> <span class="hljs-string">"./basis"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>What its practical purpose?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>there is little diff from interpolateBasis</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
   <span class="hljs-keyword">var</span> n = values.length;
   <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">t</span>) </span>{
     <span class="hljs-keyword">var</span> i = <span class="hljs-built_in">Math</span>.floor(((t %= <span class="hljs-number">1</span>) &lt; <span class="hljs-number">0</span> ? ++t : t) * n),
@@ -275,21 +312,7 @@
         v3 = values[(i + <span class="hljs-number">2</span>) % n];
     <span class="hljs-keyword">return</span> basis((t - i / n) * n, v0, v1, v2, v3);
   };
-}
-
-
-
-<span class="hljs-comment">/*var values = [1,2,3,4,5]
- var n = values.length;
-  var out = function(t) {
-    var i = Math.floor(((t %= 1) &lt; 0 ? ++t : t) * n),
-        v0 = values[(i + n - 1) % n],
-        v1 = values[i % n],
-        v2 = values[(i + 1) % n],
-        v3 = values[(i + 2) % n];
-    return basis((t - i / n) * n, v0, v1, v2, v3);
-      
-console.log(out(3));*/</span></pre></div></div>
+}</pre></div></div>
             
         </li>
         

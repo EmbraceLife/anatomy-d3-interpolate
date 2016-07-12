@@ -30,6 +30,51 @@
                 </a>
               
                 
+                <a class="source" href="2basisClosed-test.html">
+                  2basisClosed-test.js
+                </a>
+              
+                
+                <a class="source" href="2basisClosed.html">
+                  2basisClosed.js
+                </a>
+              
+                
+                <a class="source" href="3number-test.html">
+                  3number-test.js
+                </a>
+              
+                
+                <a class="source" href="3number.html">
+                  3number.js
+                </a>
+              
+                
+                <a class="source" href="4round-test.html">
+                  4round-test.js
+                </a>
+              
+                
+                <a class="source" href="4round.html">
+                  4round.js
+                </a>
+              
+                
+                <a class="source" href="5string-debug.html">
+                  5string-debug.js
+                </a>
+              
+                
+                <a class="source" href="5string-test.html">
+                  5string-test.js
+                </a>
+              
+                
+                <a class="source" href="5string.html">
+                  5string.js
+                </a>
+              
+                
                 <a class="source" href="array-test.html">
                   array-test.js
                 </a>
@@ -37,21 +82,6 @@
                 
                 <a class="source" href="array.html">
                   array.js
-                </a>
-              
-                
-                <a class="source" href="basis-opensrc.html">
-                  basis-opensrc.js
-                </a>
-              
-                
-                <a class="source" href="basisClosed-test.html">
-                  basisClosed-test.js
-                </a>
-              
-                
-                <a class="source" href="basisClosed.html">
-                  basisClosed.js
                 </a>
               
                 
@@ -150,16 +180,6 @@
                 </a>
               
                 
-                <a class="source" href="number-test.html">
-                  number-test.js
-                </a>
-              
-                
-                <a class="source" href="number.html">
-                  number.js
-                </a>
-              
-                
                 <a class="source" href="object-test.html">
                   object-test.js
                 </a>
@@ -187,26 +207,6 @@
                 
                 <a class="source" href="rgb.html">
                   rgb.js
-                </a>
-              
-                
-                <a class="source" href="round-test.html">
-                  round-test.js
-                </a>
-              
-                
-                <a class="source" href="round.html">
-                  round.js
-                </a>
-              
-                
-                <a class="source" href="string-test.html">
-                  string-test.js
-                </a>
-              
-                
-                <a class="source" href="string.html">
-                  string.js
                 </a>
               
                 
@@ -260,13 +260,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'export default function is renamed as "interpolateBasis"'</span>);
+              <p><strong>Verify understanding of the following code</strong></p>
 
-<span class="hljs-keyword">import</span> interpolateBasis <span class="hljs-keyword">from</span> <span class="hljs-string">"./basis"</span>
-<span class="hljs-built_in">console</span>.log(interpolateBasis([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>])(<span class="hljs-number">3</span>));</pre></div></div>
+            </div>
             
         </li>
         
@@ -277,15 +273,73 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>how to make use of basis func at the top????</p>
+              <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> i = t &lt;= <span class="hljs-number">0</span> ? (t = <span class="hljs-number">0</span>) : t &gt;= <span class="hljs-number">1</span> ? (t = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t * n),
+</code></pre>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> values = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+<span class="hljs-keyword">var</span> n = values.length - <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> t1 = <span class="hljs-number">-3</span>, t2 = <span class="hljs-number">4</span>, t3 = <span class="hljs-number">0.3</span>;
+<span class="hljs-keyword">var</span> i1 = t1 &lt;= <span class="hljs-number">0</span> ? (t1 = <span class="hljs-number">0</span>) : t1 &gt;= <span class="hljs-number">1</span> ? (t1 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t1 * n);
+<span class="hljs-keyword">var</span> i2 = t2 &lt;= <span class="hljs-number">0</span> ? (t2 = <span class="hljs-number">0</span>) : t2 &gt;= <span class="hljs-number">1</span> ? (t2 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t2 * n);
+<span class="hljs-keyword">var</span> i3 = t3 &lt;= <span class="hljs-number">0</span> ? (t3 = <span class="hljs-number">0</span>) : t3 &gt;= <span class="hljs-number">1</span> ? (t3 = <span class="hljs-number">1</span>, n - <span class="hljs-number">1</span>) : <span class="hljs-built_in">Math</span>.floor(t3 * n);
+<span class="hljs-built_in">console</span>.log(n,i1,i2,i3, <span class="hljs-built_in">Math</span>.floor(<span class="hljs-number">0.3</span>*<span class="hljs-number">4</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong>Import <code>export default function</code></strong></p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n import basis() from ./basis.js and run an example"</span>)
+<span class="hljs-keyword">import</span> interpolateBasis <span class="hljs-keyword">from</span> <span class="hljs-string">"./1basis"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Equivalent code to the left</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+<span class="hljs-keyword">var</span> outer = interpolateBasis(array);
+<span class="hljs-comment">//outer is `return function(t){}`</span>
+<span class="hljs-keyword">var</span> t = <span class="hljs-number">3</span>;
+<span class="hljs-built_in">console</span>.log(outer(t));
+</code></pre>
 
-<span class="hljs-keyword">import</span> {basis} <span class="hljs-keyword">from</span> <span class="hljs-string">"./basis"</span>;
-<span class="hljs-built_in">console</span>.log(basis(<span class="hljs-number">9</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>));</pre></div></div>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"test interpolateBasis: "</span> + interpolateBasis([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>])(<span class="hljs-number">3</span>));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><strong>Import <code>export function</code></strong></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">import</span> {basis} <span class="hljs-keyword">from</span> <span class="hljs-string">"./1basis"</span>;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"test basis function: "</span> + basis(<span class="hljs-number">9</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>));</pre></div></div>
             
         </li>
         

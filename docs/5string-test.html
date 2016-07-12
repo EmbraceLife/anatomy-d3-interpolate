@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>cubehelix-test.js</title>
+  <title>5string-test.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -248,7 +248,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>cubehelix-test.js</h1>
+                  <h1>5string-test.js</h1>
               </div>
           </li>
         
@@ -260,7 +260,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <hr>
+              <h3 id="how-to-use-interpolatestring">How to use interpolateString</h3>
 
             </div>
             
@@ -273,13 +273,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>run cubehelix directly from ./cubehelix.js file</p>
+              <p><strong>How to use .exec()?</strong></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">import</span> cubehelix, {cubehelixLong}  <span class="hljs-keyword">from</span> <span class="hljs-string">"./cubehelix"</span>;
-<span class="hljs-built_in">console</span>.log(cubehelix(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"brown"</span>)(<span class="hljs-number">0</span>));</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> reA = <span class="hljs-regexp">/[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g</span>;</pre></div></div>
             
         </li>
         
@@ -290,13 +288,30 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>the reason why cubehelix(a,b) has 2 args, is due to hue(a,b) in ./color.js</p>
+              <p>out is array, array[0] is what we want</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">var</span> color = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3-color"</span>);
-<span class="hljs-built_in">console</span>.log(color.rgb(<span class="hljs-string">"steelblue"</span>) + <span class="hljs-string">""</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> out = reA.exec(<span class="hljs-string">"23.45px .432km"</span>);
+<span class="hljs-built_in">console</span>.log(out); <span class="hljs-comment">// ['23.45', index: 0, input: '23.45px .432km']</span>
+out = reA.exec(<span class="hljs-string">"23.45px .432km"</span>);
+<span class="hljs-built_in">console</span>.log(out); <span class="hljs-comment">// ['.432', index: 8, input: '23.45px .432km']</span>
+out = reA.exec(<span class="hljs-string">"23.45px .432km"</span>);
+<span class="hljs-built_in">console</span>.log(out); <span class="hljs-comment">// null</span>
+out = reA.exec(<span class="hljs-string">"23.45px .432km"</span>);
+<span class="hljs-built_in">console</span>.log(out); <span class="hljs-comment">// ['23.45', index: 0, input: '23.45px .432km']</span>
+
+<span class="hljs-keyword">var</span> interpolate = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3-interpolate"</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"1st: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"10"</span>, <span class="hljs-number">50</span>)(<span class="hljs-number">0.2</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"2nd: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"20"</span>, <span class="hljs-number">10</span>)(<span class="hljs-number">0.2</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"3rd: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"30"</span>, <span class="hljs-number">100</span>)(<span class="hljs-number">0.2</span>));
+<span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 30"</span>, <span class="hljs-string">"50/10 100 "</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "18/18 44 ");</span>
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"1st: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"10"</span>, <span class="hljs-number">50</span>)(<span class="hljs-number">0.4</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"2nd: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"20"</span>, <span class="hljs-number">10</span>)(<span class="hljs-number">0.4</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"3rd: "</span>+interpolate.interpolateNumber(<span class="hljs-string">"30"</span>, <span class="hljs-number">100</span>)(<span class="hljs-number">0.4</span>));
+<span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 30"</span>, <span class="hljs-string">"50/10 100 "</span>)(<span class="hljs-number">0.4</span>));<span class="hljs-comment">// "26/16 58 ");</span></pre></div></div>
             
         </li>
         
@@ -307,9 +322,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <hr>
+              <p>a {toString: function() { return “2px”; }}
+b {toString: function() { return “12px”; }}</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString({toString: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">"2px"</span>; }}, {toString: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">"12px"</span>; }})(<span class="hljs-number">0.25</span>));<span class="hljs-comment">// "4.5px");</span></pre></div></div>
             
         </li>
         
@@ -320,12 +338,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>run cubehelix from .d3-interpolate folder, not yet bundled?? </p>
+              <p><strong>a “ 10/20 30” vs b “50/10 foo “</strong></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n take two color name strings as args"</span>);
-<span class="hljs-keyword">var</span> color = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3-color"</span>),</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 30"</span>, <span class="hljs-string">"50/10 foo "</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "18/18 foo ");</span>
+<span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 30"</span>, <span class="hljs-string">"50/10 foo "</span>)(<span class="hljs-number">0.4</span>));<span class="hljs-comment">// "26/16 foo ");</span></pre></div></div>
             
         </li>
         
@@ -336,14 +354,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>   interpolate = require(“../“);</p>
+              <p>a “ 10/20 foo”, b “50/10 100 “</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    interpolate = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3"</span>);
-
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"brown"</span>)(<span class="hljs-number">0</span>));
-<span class="hljs-built_in">console</span>.log(color.rgb(<span class="hljs-string">"steelblue"</span>) + <span class="hljs-string">""</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 foo"</span>, <span class="hljs-string">"50/10 100 "</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">//, "18/18 100 ");</span>
+  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 bar"</span>, <span class="hljs-string">"50/10 100 "</span>)(<span class="hljs-number">0.4</span>));<span class="hljs-comment">//, "26/16 100 ");</span></pre></div></div>
             
         </li>
         
@@ -354,9 +370,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <hr>
+              <p>a “ 10/20 100 20”, b “50/10 100, 20 “</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">" 10/20 100 20"</span>, <span class="hljs-string">"50/10 100, 20 "</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">//, "18/18 100, 20 ");</span></pre></div></div>
             
         </li>
         
@@ -367,15 +385,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              
+              <p>a “1.”, b “2.”</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"\n take one color name string and color.rgb or color.hcl as arg"</span>);
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix(<span class="hljs-string">"steelblue"</span>, color.hcl(<span class="hljs-string">"brown"</span>))(<span class="hljs-number">1</span>));
-<span class="hljs-built_in">console</span>.log(color.rgb(<span class="hljs-string">"brown"</span>) + <span class="hljs-string">""</span>);
-
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix(<span class="hljs-string">"steelblue"</span>, color.rgb(<span class="hljs-string">"brown"</span>))(<span class="hljs-number">1</span>));
-<span class="hljs-built_in">console</span>.log(color.rgb(<span class="hljs-string">"brown"</span>) + <span class="hljs-string">""</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"1."</span>, <span class="hljs-string">"2."</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "1.5");</span></pre></div></div>
             
         </li>
         
@@ -386,9 +400,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <hr>
+              <p>a “1e+3”, b “1e+4”</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"1e+3"</span>, <span class="hljs-string">"1e+4"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">// , "5500");</span></pre></div></div>
             
         </li>
         
@@ -399,13 +415,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              
+              <p>a “1e-3”, b “1e-4”</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"interpolateCubehelix(a, b) a as named string, b as #f00 code; or a as rgba string and b as rgba string"</span>);<span class="hljs-comment">// function(test) {</span>
-
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"#f00"</span>)(<span class="hljs-number">0.2</span>));</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"1e-3"</span>, <span class="hljs-string">"1e-4"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">// "0.00055");</span></pre></div></div>
             
         </li>
         
@@ -416,12 +430,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>“rgb(88, 100, 218)”</p>
+              <p>a “1.e-3”, b “1.e-4”</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix(<span class="hljs-string">"rgba(70, 130, 180, 1)"</span>, <span class="hljs-string">"rgba(255, 0, 0, 0.2)"</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "rgba(88, 100, 218, 0.84)");</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"1.e-3"</span>, <span class="hljs-string">"1.e-4"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">// "0.00055");</span></pre></div></div>
             
         </li>
         
@@ -432,9 +445,16 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <hr>
+              <p>a -1.e-3, b -1.e-4</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre> <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"-1.e-3"</span>, <span class="hljs-string">"-1.e-4"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">// "-0.00055");</span>
+
+
+ <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"+1.e-3"</span>, <span class="hljs-string">"+1.e-4"</span>)(<span class="hljs-number">0.5</span>), <span class="hljs-string">"0.00055"</span>);
+
+  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">".1e-2"</span>, <span class="hljs-string">".1e-3"</span>)(<span class="hljs-number">0.5</span>), <span class="hljs-string">"0.00055"</span>);</pre></div></div>
             
         </li>
         
@@ -445,16 +465,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              
+              <p>a “foo”, b “bar”</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"interpolateCubehelix.gamma(3)(a, b) returns the expected values"</span>);<span class="hljs-comment">// function(test) {</span>
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix.gamma(<span class="hljs-number">3</span>)(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"#f00"</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "rgb(96, 107, 228)");</span>
-  
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"following code and result proves cubehelix(hue) is a simplified version of cubehelix.gamma(y)"</span>);
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix.gamma(<span class="hljs-number">1</span>)(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"#f00"</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "rgb(96, 107, 228)");</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>)(<span class="hljs-number">0.5</span>), <span class="hljs-string">"bar"</span>);</pre></div></div>
             
         </li>
         
@@ -465,9 +480,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <hr>
+              <p>a “foo”, b “”</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"foo"</span>, <span class="hljs-string">""</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "");</span>
+  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">""</span>, <span class="hljs-string">"bar"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "bar");</span>
+  <span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">""</span>, <span class="hljs-string">""</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "");</span></pre></div></div>
             
         </li>
         
@@ -478,73 +497,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              
+              <p>a “top: 1000px”, b “top: 10000px”</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"interpolateCubehelix.gamma(g) coerces the specified gamma to a number"</span>);<span class="hljs-comment">// function(test) {</span>
-
-<span class="hljs-built_in">console</span>.log(interpolate.interpolateCubehelix.gamma({valueOf: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>; }})(<span class="hljs-string">"steelblue"</span>, <span class="hljs-string">"#f00"</span>)(<span class="hljs-number">0.2</span>));<span class="hljs-comment">// "rgb(96, 107, 228)");</span>
-
-
-
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"interpolateCubehelix(a, b) is equivalent to interpolateCubehelix.gamma(1)(a, b)"</span>);<span class="hljs-comment">// function(test) {</span>
-
-<span class="hljs-keyword">var</span> i0 = interpolate.interpolateCubehelix.gamma(<span class="hljs-number">1</span>)(<span class="hljs-string">"purple"</span>, <span class="hljs-string">"orange"</span>),
-    i1 = interpolate.interpolateCubehelix(<span class="hljs-string">"purple"</span>, <span class="hljs-string">"orange"</span>);
-
-<span class="hljs-built_in">console</span>.log(i1(<span class="hljs-number">0.7</span>));
-<span class="hljs-built_in">console</span>.log(i0(<span class="hljs-number">0.7</span>));
-  
-
-
-
-<span class="hljs-comment">/*
-tape("interpolateCubehelix(a, b) uses the shortest path when interpolating hue difference greater than 180°", function(test) {
-  var i = interpolate.interpolateCubehelix("purple", "orange");
-  test.equal(i(0.0), "rgb(128, 0, 128)");
-  test.equal(i(0.2), "rgb(208, 1, 127)");
-  test.equal(i(0.4), "rgb(255, 17, 93)");
-  test.equal(i(0.6), "rgb(255, 52, 43)");
-  test.equal(i(0.8), "rgb(255, 105, 5)");
-  test.equal(i(1.0), "rgb(255, 165, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses a’s hue when b’s hue is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix("#f60", color.cubehelix(NaN, NaN, 0))(0.5), "rgb(162, 41, 0)");
-  test.equal(interpolate.interpolateCubehelix("#6f0", color.cubehelix(NaN, NaN, 0))(0.5), "rgb(3, 173, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses b’s hue when a’s hue is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix(color.cubehelix(NaN, NaN, 0), "#f60")(0.5), "rgb(162, 41, 0)");
-  test.equal(interpolate.interpolateCubehelix(color.cubehelix(NaN, NaN, 0), "#6f0")(0.5), "rgb(3, 173, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses a’s chroma when b’s chroma is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix("#ccc", color.cubehelix(NaN, NaN, 0))(0.5), "rgb(102, 102, 102)");
-  test.equal(interpolate.interpolateCubehelix("#f00", color.cubehelix(NaN, NaN, 0))(0.5), "rgb(147, 0, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses b’s chroma when a’s chroma is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix(color.cubehelix(NaN, NaN, 0), "#ccc")(0.5), "rgb(102, 102, 102)");
-  test.equal(interpolate.interpolateCubehelix(color.cubehelix(NaN, NaN, 0), "#f00")(0.5), "rgb(147, 0, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses b’s luminance when a’s luminance is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix(null, color.cubehelix(20, 1.5, 0.5))(0.5), "rgb(248, 93, 0)");
-  test.end();
-});
-
-tape("interpolateCubehelix(a, b) uses a’s luminance when b’s luminance is undefined", function(test) {
-  test.equal(interpolate.interpolateCubehelix(color.cubehelix(20, 1.5, 0.5), null)(0.5), "rgb(248, 93, 0)");
-  test.end();
-});
-*/</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"top: 1000px;"</span>, <span class="hljs-string">"top: 1e3px;"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "top: 1000px;");</span>
+<span class="hljs-built_in">console</span>.log(interpolate.interpolateString(<span class="hljs-string">"top: 1e3px;"</span>, <span class="hljs-string">"top: 10000vect;"</span>)(<span class="hljs-number">0.5</span>));<span class="hljs-comment">//, "top: 1000px;");</span></pre></div></div>
             
         </li>
         
